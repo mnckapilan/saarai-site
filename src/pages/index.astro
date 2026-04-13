@@ -1,17 +1,577 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <span class="logo">saarai</span>
+      <a href="https://app.saarai.dev" class="btn btn-primary">Open IDE</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="badge">Powered by WebAssembly</div>
+      <h1>Python in your browser.<br />No install required.</h1>
+      <p class="hero-sub">
+        Saarai is a full Python IDE that runs entirely on your machine — no
+        server, no account, no setup. Open a file, write code, run it instantly.
+      </p>
+      <div class="hero-actions">
+        <a href="https://app.saarai.dev" class="btn btn-primary btn-lg">
+          Start coding
+        </a>
+        <a href="#how-it-works" class="btn btn-ghost btn-lg">How it works</a>
+      </div>
+      <div class="hero-code">
+        <div class="code-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-filename">main.py</span>
+        </div>
+        <pre class="code-body"><code><span class="kw">import</span> math
+
+<span class="kw">def</span> <span class="fn">is_prime</span>(n):
+    <span class="kw">if</span> n &lt; 2:
+        <span class="kw">return</span> <span class="lit">False</span>
+    <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(2, <span class="fn">int</span>(math.sqrt(n)) + 1):
+        <span class="kw">if</span> n % i == 0:
+            <span class="kw">return</span> <span class="lit">False</span>
+    <span class="kw">return</span> <span class="lit">True</span>
+
+primes = [i <span class="kw">for</span> i <span class="kw">in</span> <span class="fn">range</span>(2, 50) <span class="kw">if</span> <span class="fn">is_prime</span>(i)]
+<span class="fn">print</span>(primes)</code></pre>
+        <div class="code-output">
+          <span class="output-label">output</span>
+          <span class="output-text">[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Everything you need to write Python</h2>
+      <p class="section-sub">
+        No compromises. Real tools, running locally.
+      </p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3>VS Code-quality editor</h3>
+          <p>Built on Monaco — the same editor that powers VS Code. Syntax highlighting, bracket matching, and multiple monospace fonts.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3>Instant execution</h3>
+          <p>Hit <kbd>⌘ Enter</kbd> and your code runs immediately. No build step, no server round-trip. Python executes in a Web Worker so the UI stays responsive.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3>Your code stays yours</h3>
+          <p>Nothing you write is ever sent to a server. The Python runtime runs entirely on your machine via WebAssembly — fully private, works offline.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3>Open entire projects</h3>
+          <p>Import a folder and your full directory tree appears in the file explorer. Multi-file imports and <code>open()</code> work out of the box — just like running locally.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+          </div>
+          <h3>Real-time output</h3>
+          <p>stdout and stderr stream to the output panel as your code runs. Errors show clean, readable tracebacks — no Pyodide internals in the noise.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+          </div>
+          <h3>Save back to disk</h3>
+          <p>Edit files in the browser and save them back to your local filesystem. Autosave keeps your work in sync every 5 seconds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how" id="how-it-works">
+    <div class="container">
+      <h2 class="section-title">How it works</h2>
+      <p class="section-sub">
+        Real CPython, compiled to WebAssembly and running in your tab.
+      </p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <h3>Python runs in a Web Worker</h3>
+            <p>
+              Saarai uses <a href="https://pyodide.org" class="link">Pyodide</a> — a port of CPython to WebAssembly. When you open the IDE, the Python runtime (~10 MB) loads from CDN and is cached for future visits. It runs in a Web Worker so your UI is never blocked.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <h3>Files live in an in-memory filesystem</h3>
+            <p>
+              When you open a file or folder, it's written into Pyodide's in-memory filesystem at <code>/project/</code>. Your Python code can use <code>import</code>, <code>open()</code>, and relative paths exactly as it would on a real machine.
+            </p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <h3>Stop anytime, instantly</h3>
+            <p>
+              Long-running scripts can be interrupted immediately. Saarai uses a <code>SharedArrayBuffer</code> to signal Pyodide between Python opcodes, raising a <code>KeyboardInterrupt</code> without restarting the runtime.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to write some Python?</h2>
+      <p>No account. No install. Open your browser and start.</p>
+      <a href="https://app.saarai.dev" class="btn btn-primary btn-lg">
+        Open Saarai
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <span class="logo">saarai</span>
+      <span class="footer-copy">Built with Pyodide + Monaco</span>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Layout */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Nav */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    background: rgba(13, 13, 15, 0.85);
+    backdrop-filter: blur(12px);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: var(--font-sans);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-hover);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+
+  .btn-lg {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: var(--radius);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 28px;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+
+  /* Code window */
+  .hero-code {
+    max-width: 680px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 0 60px var(--accent-glow);
+  }
+
+  .code-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-elevated);
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background: #ff5f57; }
+  .dot.yellow { background: #febc2e; }
+  .dot.green { background: #28c840; }
+
+  .code-filename {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-left: 4px;
+  }
+
+  .code-body {
+    padding: 24px;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.75;
+    overflow-x: auto;
+    color: var(--text);
+  }
+
+  .kw { color: #c792ea; }
+  .fn { color: #82aaff; }
+  .lit { color: #f78c6c; }
+
+  .code-output {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--bg-elevated);
+  }
+
+  .output-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .output-text {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--green);
+  }
+
+  /* Sections shared */
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .section-sub {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 56px;
+  }
+
+  /* Features */
+  .features {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 28px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg-surface);
+    transition: border-color 0.2s ease;
+  }
+
+  .feature-card:hover {
+    border-color: var(--accent);
+  }
+
+  .feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-glow);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .feature-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  .feature-card code {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    background: var(--bg-elevated);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--text);
+  }
+
+  kbd {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  /* How it works */
+  .how {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-width: 740px;
+    margin: 0 auto;
+  }
+
+  .step {
+    display: flex;
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step:last-child {
+    border-bottom: none;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    min-width: 28px;
+    padding-top: 4px;
+  }
+
+  .step-content h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: -0.015em;
+  }
+
+  .step-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .step-content code {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    background: var(--bg-elevated);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--text);
+  }
+
+  .link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .link:hover {
+    color: var(--accent-hover);
+  }
+
+  /* CTA */
+  .cta {
+    padding: 100px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 16px;
+  }
+
+  .cta p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 36px;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+  }
+
+  footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-copy {
+    font-size: 0.85rem;
+    color: var(--text-faint);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .hero { padding: 64px 0 60px; }
+    .features, .how, .cta { padding: 72px 0; }
+    .step { gap: 20px; }
+    footer .container { flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
